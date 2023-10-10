@@ -2,8 +2,6 @@
 
 This project was build during Sber's School 21 bootcamp.
 
-> NOTE: this project was build on MacOS. So `leaks` and some flags doesn't work in GNU+Linux.
-
 Team 70: 
   - lambertm (Leader)
   - atruskat

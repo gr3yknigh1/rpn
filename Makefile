@@ -7,12 +7,12 @@ MKDIR   := mkdir -p
 RM      := rm -rf
 CC      := gcc
 CFLAGS  := -g -O0 -Wall -Wextra -Wpedantic -Werror -std=c11 --sanitize=address,undefined
-LDFLAGS :=
+LDFLAGS := -lm
 
 CFLAGS += -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 
 CFLAGS += -Wconversion -Wsign-conversion -Wformat-security -Wnull-dereference
 CFLAGS += -fstack-protector-all -Wstack-protector --param ssp-buffer-size=4
-CFLAGS += -pie -fPIE -ftrapv -D_FORTIFY_SOURCE=3
+# CFLAGS += -pie -fPIE -ftrapv -D_FORTIFY_SOURCE=3
 CFLAGS += -Wtrampolines -Walloca -Wvla -Warray-bounds=2 -Wimplicit-fallthrough=3 
 CFLAGS += -Wshift-overflow=2 -Wcast-qual -Wstringop-overflow=4 
 CFLAGS += -Warith-conversion -Wlogical-op -Wduplicated-cond -Wduplicated-branches -Wformat-signedness
@@ -100,10 +100,15 @@ fmt:
 
 lint:
 	clang-format -n -Werror $(HEADERS) $(SRCS)
-	cppcheck --enable=all --suppress=missingIncludeSystem $(SRC_DIR)
+	clang-tidy $(HEADERS) $(SRCS)
+	@# NOTE: Add conditions on using cppcheck
+	@#cppcheck --enable=all --suppress=missingIncludeSystem $(SRC_DIR)
 
 run: all
-	leaks --atExit -- $(EXEC)
+	valgrind $(EXEC)
+
+	@# NOTE: Add conditions on using leaks
+	@#leaks --atExit -- $(EXEC)
 
 hooks:
 	cp $(SRC_DIR)/hooks/lint.sh $(THIS_MAKE_FILE_DIR)/.git/hooks/pre-commit
