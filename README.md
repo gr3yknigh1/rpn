@@ -9,7 +9,9 @@ Team 70:
 
 ## How to use
 
-Compile and run.
+Compile and run. 
+
+> NOTE: Has range from `0` to `4 PI` on X axis and from `-1` to `1` on Y axis.
 
 Example input:
 
@@ -42,6 +44,23 @@ x * x
 ................................................................................
 ......*.........................................................................
 ```
+
+## Supported operators:
+
+  * `+` - plus
+  * `-` - minus (binary and unary)
+  * `*` - multiplication
+  * `/` - division
+  * `(` and `)` - left and right parens
+  * `sin(...)` - sin
+  * `cos(...)` - cos
+  * `tan(...)` - tan
+  * `ctg(...)` - ctg
+  * `sqrt(...)` - sqrt
+  * `ln(...)` - ln
+  * `x` - variable
+
+List of tokens avaiable in [token.h](./src/token.h).
 
 ## Build
 
