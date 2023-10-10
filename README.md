@@ -3,9 +3,9 @@
 This project was build during Sber's School 21 bootcamp.
 
 Team 70: 
-  - lambertm (Leader)
-  - atruskat
-  - wittenbb ([me](https://github.com/gr3yknigh1))
+  - [lambertm](https://github.com/manikala) (Leadej): worked on graph renderer and initial lexer version
+  - [atruskat](https://github.com/eliot-geek): worked on infix to rpn conversion, and expression evaluation
+  - [wittenbb](https://github.com/gr3yknigh1) (me): tooling, expression parser and string tokenizer, `str` and `darray` datastructures
 
 ## How to use
 
